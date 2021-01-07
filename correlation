@@ -1,0 +1,5 @@
+def plot_corrMatrix(df,Nvariable,target):
+  corr=df.corr()
+  cols = corr.nlargest(20, target)[target].index
+  cm = np.corrcoef(df[cols].values.T)
+  sns.heatmap(cm,annot=True,yticklabels=cols.values,xticklabels=cols.values)
